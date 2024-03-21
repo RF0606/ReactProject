@@ -2,6 +2,7 @@ import React,{lazy} from 'react'
 //navigate
 import {Navigate} from 'react-router-dom'
 import Home from "@/views/Home"
+import NotFound from "@/views/404/Error"
 //lazy load
 const About = lazy(()=>import("@/views/About"))
 const Page1 = lazy(()=>import("@/views/Page1"))
@@ -35,7 +36,14 @@ const routes = [
                 path:"/Page2",
                 element:withLoadingComponent(<Page2 />)
             },
-
+            {
+                path:"/Error",
+                element:<NotFound/>
+            },
+            {
+                path:"*",
+                element:<Navigate to={"/Error"}/>
+            }
         ]
     }
 ]
