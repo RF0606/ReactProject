@@ -19,11 +19,11 @@ const View: React.FC = () => {
             {/*右侧内容*/}
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{ paddingLeft: '16px' }} >
-                    {/*breadcrumb.item 已经被弃用了，请使用items， 具体问gpt*/}
-                    <Breadcrumb style={{ margin: '', lineHeight:'64px'}}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb>
+                    {/*breadcrumb.item 已经被弃用了，请使用items*/}
+                    <Breadcrumb style={{ margin: '', lineHeight:'64px'}} items={[
+                        {title: "User"},
+                        {title: "Bill"}
+                    ]}/>
                 </Header>
                 <Content style={{ margin: '16px 16px 0' }} className="site-layout-background">
                     <Outlet></Outlet>
