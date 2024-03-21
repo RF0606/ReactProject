@@ -1,42 +1,7 @@
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
 import {useState} from "react";
-import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
-
-type MenuItem = Required<MenuProps>['items'][number];
-
-function getItem(
-    label: React.ReactNode,
-    key: React.Key,
-    icon?: React.ReactNode,
-    children?: MenuItem[],
-): MenuItem {
-    return {
-        key,
-        icon,
-        children,
-        label,
-    } as MenuItem;
-}
-
-const items: MenuItem[] = [
-    getItem('Option 1', '/Page1',<PieChartOutlined />),
-    getItem('Option 2', '/Page2',<DesktopOutlined />),
-    getItem('User', 'sub1',<UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '/About', <FileOutlined />),
-];
+import { items } from '@/components/MainMenu/MenuItems'
 
 const menuSideBarComp: React.FC = () => {
     // 获取当前路由的位置信息
