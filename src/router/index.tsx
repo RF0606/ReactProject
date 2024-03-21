@@ -7,6 +7,7 @@ import NotFound from "@/views/404/Error"
 const About = lazy(()=>import("@/views/About"))
 const Page1 = lazy(()=>import("@/views/Page1"))
 const Page2 = lazy(()=>import("@/views/Page2"))
+const Team1 = lazy(()=>import("@/views/Team/Team1"))
 
 // loading
 const withLoadingComponent = (comp:JSX.Element)=> (
@@ -17,32 +18,36 @@ const withLoadingComponent = (comp:JSX.Element)=> (
 
 const routes = [
     {
-        path:"/",
-        element:<Navigate to={"/Page1"}/>
+        path: "/",
+        element: <Navigate to={"/Page1"}/>
     },
     {
-        path:"/",
-        element:<Home />,
+        path: "/",
+        element: <Home />,
         children:[
             {
-                path:"/About",
-                element:withLoadingComponent(<About />)
+                path: "/About",
+                element: withLoadingComponent(<About />)
             },
             {
-                path:"/Page1",
-                element:withLoadingComponent(<Page1 />)
+                path: "/Page1",
+                element: withLoadingComponent(<Page1 />)
             },
             {
-                path:"/Page2",
-                element:withLoadingComponent(<Page2 />)
+                path: "/Page2",
+                element: withLoadingComponent(<Page2 />)
             },
             {
-                path:"/Error",
-                element:<NotFound/>
+                path: "/Team/Team1",
+                element: withLoadingComponent(<Team1 />)
             },
             {
-                path:"*",
-                element:<Navigate to={"/Error"}/>
+                path: "/Error",
+                element: <NotFound/>
+            },
+            {
+                path: "*",
+                element: <Navigate to={"/Error"}/>
             }
         ]
     }
