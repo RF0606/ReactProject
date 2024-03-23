@@ -1,6 +1,8 @@
 import { useEffect } from "react";
-import styles from "./login.module.scss"
-import initLoginBg from "./init.ts"
+import { Input,Space,Button,message,Checkbox,Form } from 'antd';
+import styles from "./login.module.scss";
+import initLoginBg from "./init.ts";
+import LoginForm from "@/views/Login/loginForm";
 
 const View = () => {
 
@@ -19,7 +21,9 @@ const View = () => {
                 {/* title part */}
                 <div className={styles.title}>
                     <h1>MealBets&nbsp;·&nbsp;Menu System</h1>
-                    <p>Enjoy everyday</p>
+                    <p></p>
+                    {/* login */}
+                    <LoginForm/>
                 </div>
             </div>
         </div>
