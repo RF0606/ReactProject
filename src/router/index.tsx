@@ -2,7 +2,7 @@ import React,{lazy} from 'react'
 //navigate
 import {Navigate} from 'react-router-dom'
 import Home from "@/views/Home"
-import Login from "@/views/Login/index"
+import Login from "@/views/Login/login"
 import NotFound from "@/views/404/Error"
 //lazy load
 const About = lazy(()=>import("@/views/About"))

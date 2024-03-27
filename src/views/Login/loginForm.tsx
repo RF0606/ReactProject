@@ -1,52 +1,40 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import React from 'react';
+import React, {ChangeEvent, useEffect, useState} from "react";
+import {Input, Space, Button, message, Checkbox, Form} from 'antd';
+import './login.less'
 
-const view: React.FC = () => {
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-    };
+const View = () => {
 
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-    };
+    // 获取用户输入的信息
+    const [usernameVal, setUsernameVal] = useState(""); // 定义用户输入用户名这个变量
+    const [passwordVal, setPasswordVal] = useState(""); // 定义用户输入密码这个变量
+    const [captchaVal, setCaptchaVal] = useState(""); // 定义用户输入验证码这个变量
+    // 定义一个变量保存验证码图片信息
+    const [captchaImg, setCaptchaImg] = useState("");
+
+    const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        // 修改usernameVal这个变量为用户输入的那个值。 以后拿到usernameVal这个变量就相当于拿到用户输入的信息。
+        setUsernameVal(e.target.value);
+    }
+    const passwordChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPasswordVal(e.target.value);
+    }
+    const captchaChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setCaptchaVal(e.target.value);
+    }
+
+    const goToLogin = () => {
+        console.log(usernameVal)
+        console.log(passwordVal)
+        console.log(captchaVal)
+    }
 
     return (
-        <Form
-            name="basic"
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 16 }}
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-        >
-            <Form.Item
-                label={<label style={{ color: "#FFFFFF" }}>Username</label>}
-                name="username"
-                rules={[{ required: true, message: 'Please input your username!' }]}
-            >
-                <Input />
-            </Form.Item>
-
-            <Form.Item
-                label={<label style={{ color: "#FFFFFF" }}>Password</label>}
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
-            >
-                <Input.Password />
-            </Form.Item>
-
-            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 4, span: 16 }}>
-                <Checkbox style={{ color: "#FFFFFF" }}>Remember me</Checkbox>
-            </Form.Item>
-
-            <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
-            </Form.Item>
-        </Form>
-    );
-};
-
-export default view;
+        <Space direction="vertical" size="middle" style={{display: 'flex'}}>
+            <Input placeholder="Username" onChange={usernameChange}/>
+            <Input.Password placeholder="Password" onChange={passwordChange}/>
+            <div className="captchaBox"></div>
+            <Button className="loginBtn" type="primary" block onClick={goToLogin}>Login</Button>
+        </Space>
+    )
+}
+export default View
