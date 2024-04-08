@@ -1,5 +1,5 @@
 
-type RootState = ReturnType<typeof import("@/store").getState>
+type RootState = ReturnType<typeof import("@/store/store").getState>
 
 interface Window{
     __REDUX_DEVTOOLS_EXTENSION__:function;

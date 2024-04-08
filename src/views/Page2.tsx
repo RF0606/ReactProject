@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import {add1, add2} from "@/feature/count/count"
-import store from "@/store";
+import store from "@/store/store";
 
 type RootState = ReturnType<typeof store.getState>
 
