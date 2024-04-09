@@ -1,4 +1,4 @@
-export default{
+const store={
     state:{
         arr:[10,20,30]
     },
@@ -7,5 +7,16 @@ export default{
             newState.arr.push(action.val)
         },
     },
-    arrPush:"arrPush"
+
+    actionNames:{}
 }
+
+let actionNames = {}
+
+for(let key in store.actions){
+    actionNames[key] = key
+}
+
+store.actionNames=actionNames;
+
+export default store
