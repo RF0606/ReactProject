@@ -2,17 +2,18 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import {Input, Space, Button, message, Checkbox, Form} from 'antd';
 import styles from "./login.module.scss";
 import initLoginBg from "./init.ts";
-import './login.less'
+import "./login.less"
 import { useNavigate } from "react-router-dom"
-import LoginForm from './loginForm'
+import LoginForm from "./loginForm"
+import getCaptchaImg from "./loginForm"
 
 const View = () => {
 
     useEffect(() => {
         initLoginBg();
-        window.onresize = function () {
-            initLoginBg()
-        };
+        window.onresize = function () {initLoginBg()};
+        // 加了下面这个就不显示页面了,因为接口好像不能用
+        // getCaptchaImg();
     }, []);
 
     return (
