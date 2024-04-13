@@ -9,7 +9,6 @@ import currentReducer from "./NumStatus/reducer"
 
 
 //创建数据仓库
-
 // 组合各个模块的reducer
 const reducers = combineReducers({
     handleArr,
@@ -21,6 +20,11 @@ const reducers = combineReducers({
 const store = legacy_createStore(reducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store
 */
+
+
+//整体改成redux slice形式
+
+
 // 判断有没有__REDUX_DEVTOOLS_EXTENSION_COMPOSE__这个模块
 let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}):compose //rt
 
